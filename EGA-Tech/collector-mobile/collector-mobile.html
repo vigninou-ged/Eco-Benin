@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÉcoVille - Appli Collecteurs</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../index.css">
+  <link rel="stylesheet" href="collector-mobile.css">
+</head>
+<body>
+  <div class="mobile-container">
+    <!-- En-tête -->
+    <header class="text-center py-3">
+      <h1 class="h5">Collecteur ÉcoVille</h1>
+      <p id="current-time" class="mb-0 text-muted small"></p>
+    </header>
+
+    <!-- Tableau de bord -->
+    <section id="dashboard" class="p-2">
+      <h2 class="h6">Tournée du Jour</h2>
+      <div class="card card-custom mb-3">
+        <div class="card-body">
+          <p>Poubelles à collecter : <span id="bins-to-collect">0</span></p>
+          <p>Distance totale : <span id="total-distance">0</span> km</p>
+          <p>Carburant prévu : <span id="fuel-estimate">0</span> L</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation GPS -->
+    <section id="navigation" class="p-2">
+      <h2 class="h6">Prochains Arrêts</h2>
+      <ul id="bins-list" class="list-group"></ul>
+    </section>
+
+    <!-- Statistiques -->
+    <section id="stats" class="p-2">
+      <h2 class="h6">Statistiques</h2>
+      <div class="card card-custom">
+        <div class="card-body">
+          <p>Temps passé : <span id="time-spent">0</span> min</p>
+          <p>Bacs vidés : <span id="bins-collected">0</span></p>
+          <p>Économies : <span id="savings">0</span>%</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../common.js"></script>
+  <script src="collector-mobile.js"></script>
+</body>
+</html>

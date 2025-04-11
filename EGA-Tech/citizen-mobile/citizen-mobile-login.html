@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÉcoBénin - Connexion</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../index.css">
+  <link rel="stylesheet" href="citizen-mobile.css">
+</head>
+<body>
+  <div class="mobile-container">
+    <!-- En-tête -->
+    <header class="text-center py-4">
+      <img src="https://via.placeholder.com/100" alt="Logo ÉcoBénin" class="mb-3 logo">
+      <h1 class="h5">Bienvenue sur ÉcoBénin</h1>
+      <p class="text-muted small">Connectez-vous pour commencer</p>
+    </header>
+
+    <!-- Formulaire de Connexion -->
+    <section id="login" class="p-3">
+      <form id="login-form" class="card card-custom p-3">
+        <div class="mb-3">
+          <label for="login-credential" class="form-label"><i class="fas fa-user"></i> Email ou Téléphone</label>
+          <input type="text" class="form-control" id="login-credential" placeholder="Ex. email@exemple.com">
+        </div>
+        <div class="mb-3">
+          <label for="login-password" class="form-label"><i class="fas fa-lock"></i> Mot de passe</label>
+          <input type="password" class="form-control" id="login-password" placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn btn-primary btn-custom w-100 cta-btn"><i class="fas fa-sign-in-alt"></i> Se connecter</button>
+      </form>
+      <div class="text-center mt-3">
+        <button id="google-login" class="btn btn-outline-dark btn-custom w-75"><i class="fab fa-google"></i> Continuer avec Google</button>
+      </div>
+      <p class="text-center mt-3">Pas de compte ? <a href="citizen-mobile-signup.html" class="text-primary">Inscrivez-vous</a></p>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../common.js"></script>
+  <script src="citizen-mobile.js"></script>
+</body>
+</html>

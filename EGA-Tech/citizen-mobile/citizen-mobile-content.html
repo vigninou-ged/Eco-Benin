@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ÉcoBénin : Gérez vos déchets, gagnez des points et recyclez intelligemment au Bénin.">
+  <meta name="keywords" content="recyclage, gestion déchets, ÉcoBénin, application mobile, environnement">
+  <meta name="robots" content="index, follow">
+  <title>ÉcoBénin - Tableau de Bord</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../index.css">
+  <link rel="stylesheet" href="citizen-mobile.css">
+</head>
+<body>
+  <div class="mobile-container">
+    <!-- Section 1 : Tableau de bord -->
+    <section id="dashboard" class="content-section active">
+      <header class="bg-warning text-dark py-2 px-2 d-flex justify-content-between align-items-center">
+        <p class="mb-0 small"><i class="fas fa-sun me-1"></i> Salut, Kofi ! <span id="eco-points">0</span> <i class="fas fa-coins"></i></p>
+        <div>
+          <i class="fas fa-bell me-1 notification-icon"></i>
+          <img src="https://via.placeholder.com/25" alt="Profil" class="rounded-circle profile-pic">
+        </div>
+      </header>
+      <div class="visual-banner text-center py-2">
+        <img src="https://via.placeholder.com/300x80" alt="Trajet de collecte" class="img-fluid dashed-border w-100">
+      </div>
+      <div class="help-section p-2">
+        <h2 class="h6 text-center mb-2">Comment ça marche ?</h2>
+        <div class="row text-center">
+          <div class="col-4"><i class="fas fa-camera fa-lg mb-1"></i><p class="tiny">Photo</p></div>
+          <div class="col-4"><i class="fas fa-map-marker-alt fa-lg mb-1"></i><p class="tiny">Dépose</p></div>
+          <div class="col-4"><i class="fas fa-medal fa-lg mb-1"></i><p class="tiny">Points</p></div>
+        </div>
+        <button class="btn btn-primary btn-custom w-100 mt-2 cta-btn"><i class="fas fa-video"></i> Tutoriel</button>
+      </div>
+      <div class="partners p-2 text-center">
+        <h2 class="h6 mb-2">Partenaires</h2>
+        <img src="https://via.placeholder.com/60x20" alt="Boulanger" class="me-1">
+        <img src="https://via.placeholder.com/60x20" alt="Marques Avenue">
+      </div>
+    </section>
+
+    <!-- Section 2 : Mes objets -->
+    <section id="objects" class="content-section">
+      <header class="visual-header text-center py-2">
+        <img src="https://via.placeholder.com/300x80" alt="Utilisateur jetant un objet" class="img-fluid w-100">
+      </header>
+      <div class="tabs p-2">
+        <ul class="nav nav-tabs nav-fill">
+          <li class="nav-item"><a class="nav-link active tiny" href="#objects-tab">Objets</a></li>
+          <li class="nav-item"><a class="nav-link tiny" href="#deposits-tab">Dépôts</a></li>
+        </ul>
+        <div class="search-bar mt-2">
+          <div class="input-group input-group-sm">
+            <input type="text" class="form-control" placeholder="Rechercher">
+            <span class="input-group-text"><i class="fas fa-filter"></i></span>
+          </div>
+        </div>
+        <div class="empty-state text-center mt-2">
+          <img src="https://via.placeholder.com/80" alt="Boîte vide" class="mb-1">
+          <p class="text-muted small">Aucun objet pour l’instant…</p>
+          <button class="btn btn-primary btn-custom cta-btn"><i class="fas fa-plus"></i> Ajouter</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3 : Mes points -->
+    <section id="points" class="content-section">
+      <h2 class="h6 text-center py-2">Mes points</h2>
+      <div class="card card-custom bg-dark text-white mx-2 mb-2">
+        <div class="card-body text-center">
+          <p class="h4 mb-0" id="total-points">0</p>
+          <p class="tiny">Total</p>
+          <a href="#" class="text-warning tiny"><i class="fas fa-history"></i> Historique</a>
+        </div>
+      </div>
+      <div class="points-store p-2">
+        <h2 class="h6 mb-2">Points par magasin</h2>
+        <div class="empty-state text-center">
+          <img src="https://via.placeholder.com/60" alt="Portefeuille vide" class="mb-1">
+          <p class="text-muted small">Pas encore de points…</p>
+          <button class="btn btn-primary btn-custom cta-btn"><i class="fas fa-recycle"></i> Recycler</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation en bas -->
+    <nav class="nav-bottom  bg-light ">
+      <div class="d-flex justify-content-around align-items-center">
+        <a href="#dashboard" class="nav-link active"><i class="fas fa-home"></i><span class="tiny">Accueil</span></a>
+        <a href="#objects" class="nav-link"><i class="fas fa-box"></i><span class="tiny">Objets</span></a>
+        <a href="#" class="nav-link add-btn"><i class="fas fa-plus-circle fa-lg"></i></a>
+        <a href="#points" class="nav-link"><i class="fas fa-coins"></i><span class="tiny">Points</span></a>
+        <a href="#" class="nav-link"><i class="fas fa-ticket-alt"></i><span class="tiny">Bons</span></a>
+'.      </div>
+    </nav>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../common.js"></script>
+  <script src="citizen-mobile.js"></script>
+</body>
+</html>

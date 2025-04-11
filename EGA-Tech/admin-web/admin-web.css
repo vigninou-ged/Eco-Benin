@@ -1,0 +1,47 @@
+/* admin-web.css */
+
+header {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+  }
+  
+  #overview .card {
+    text-align: center;
+    padding: 15px;
+  }
+  
+  #bins-container .card {
+    transition: transform 0.2s ease;
+  }
+  
+  #bins-container .card:hover {
+    transform: scale(1.02);
+  }
+  
+  #alerts-list .list-group-item {
+    padding: 10px;
+    margin-bottom: 5px;
+  }
+  
+  #alerts-list .alert-danger {
+    background-color: var(--danger-color);
+    color: white;
+  }
+  
+  #alerts-list .alert-warning {
+    background-color: var(--warning-color);
+    color: var(--text-color);
+  }
+  
+  #add-bin-form {
+    max-width: 400px;
+  }
+  
+  @media (max-width: 768px) {
+    #overview .col-md-3 {
+      flex: 0 0 50%; /* 2 cartes par ligne sur tablette */
+    }
+  }

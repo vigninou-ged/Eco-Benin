@@ -1,0 +1,37 @@
+/* collector-mobile.css */
+
+.mobile-container {
+    background-color: #fff;
+    min-height: 100vh;
+    padding-bottom: 20px;
+  }
+  
+  header {
+    background-color: var(--secondary-color);
+    color: white;
+    border-bottom: 2px solid var(--primary-color);
+  }
+  
+  #bins-list .list-group-item {
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  #bins-list .btn-collect {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+  
+  #dashboard .card-body {
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  #stats .card-body {
+    padding: 10px;
+  }
