@@ -21,7 +21,7 @@
 
 /* Typographie globale */
 body {
-  font-family: 'Roboto', sans-serif; /* Police moderne et lisible */
+  font-family: 'Roboto', sans-serif;
   color: var(--text-color);
   background-color: var(--bg-light);
   line-height: 1.6;
@@ -47,7 +47,7 @@ body {
 
 /* Adaptation mobile pour interfaces simulées */
 .mobile-container {
-  max-width: 400px; /* Largeur typique d’un écran mobile */
+  max-width: 400px;
   margin: 0 auto;
   border: 2px solid #ddd;
   border-radius: var(--border-radius);
@@ -85,16 +85,17 @@ body {
   border-radius: var(--border-radius);
 }
 
-/* Styles spécifiques pour index.html */
+/* Styles spécifiques pour index.html - Carrousel */
 .btn-prototype {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 200px; /* Hauteur fixe */
+  height: 220px;
   text-decoration: none;
   color: inherit;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 15px;
 }
 
 .btn-prototype:hover {
@@ -122,6 +123,27 @@ body {
   opacity: 0.9;
 }
 
+.carousel-item {
+  padding: 20px 0;
+  transition: transform 0.6s ease-in-out;
+}
+
+.carousel-control-prev, .carousel-control-next {
+  width: 10%;
+}
+
+.carousel-indicators button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--text-color);
+  border: none;
+}
+
+.carousel-indicators .active {
+  background-color: var(--primary-color);
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .btn-custom {
@@ -132,9 +154,12 @@ body {
     margin-bottom: 10px;
   }
   .btn-prototype {
-    height: 180px;
-    padding: 15px;
+    height: 200px;
+    padding: 10px;
   }
   .btn-prototype h2 { font-size: 1.1rem; }
   .btn-prototype p { font-size: 11px; }
+  .carousel-control-prev, .carousel-control-next {
+    width: 15%;
+  }
 }
