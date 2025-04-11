@@ -2,96 +2,139 @@
 
 /* Reset de base pour cohérence cross-browser */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variables CSS pour réutilisation et personnalisation facile */
+:root {
+  --primary-color: #28a745; /* Vert écologique */
+  --secondary-color: #007bff; /* Bleu pour actions */
+  --danger-color: #dc3545; /* Rouge pour alertes */
+  --warning-color: #ffc107; /* Jaune pour attention */
+  --text-color: #333; /* Texte principal */
+  --bg-light: #f8f9fa; /* Fond clair */
+  --border-radius: 8px; /* Coins arrondis */
+  --shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+/* Typographie globale */
+body {
+  font-family: 'Roboto', sans-serif; /* Police moderne et lisible */
+  color: var(--text-color);
+  background-color: var(--bg-light);
+  line-height: 1.6;
+}
+
+/* Conteneur principal pour toutes les interfaces */
+.container-fluid {
+  padding: 15px;
+}
+
+/* Classes utilitaires réutilisables */
+.btn-custom {
+  border-radius: var(--border-radius);
+  padding: 10px 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+/* Adaptation mobile pour interfaces simulées */
+.mobile-container {
+  max-width: 400px; /* Largeur typique d’un écran mobile */
+  margin: 0 auto;
+  border: 2px solid #ddd;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+/* Carte stylée pour poubelles ou stats */
+.card-custom {
+  border: none;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 15px;
+}
+
+.card-custom .card-header {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: bold;
+}
+
+/* Statuts des poubelles */
+.status-full { background-color: var(--danger-color); color: white; }
+.status-half { background-color: var(--warning-color); color: var(--text-color); }
+.status-low { background-color: var(--primary-color); color: white; }
+
+/* Animation pour notifications ou alertes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.alert-custom {
+  animation: fadeIn 0.5s ease-in;
+  border-radius: var(--border-radius);
+}
+
+/* Styles spécifiques pour index.html */
+.btn-prototype {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px; /* Hauteur fixe */
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-prototype:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  color: inherit;
+}
+
+.btn-prototype i {
+  transition: transform 0.3s ease;
+}
+
+.btn-prototype:hover i {
+  transform: scale(1.2);
+}
+
+.btn-prototype h2 {
+  margin: 10px 0 5px;
+  font-size: 1.25rem;
+}
+
+.btn-prototype p {
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .btn-custom {
+    padding: 8px 15px;
+    font-size: 14px;
   }
-  
-  /* Variables CSS pour réutilisation et personnalisation facile */
-  :root {
-    --primary-color: #28a745; /* Vert écologique */
-    --secondary-color: #007bff; /* Bleu pour actions */
-    --danger-color: #dc3545; /* Rouge pour alertes */
-    --warning-color: #ffc107; /* Jaune pour attention */
-    --text-color: #333; /* Texte principal */
-    --bg-light: #f8f9fa; /* Fond clair */
-    --border-radius: 8px; /* Coins arrondis */
-    --shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  .card-custom {
+    margin-bottom: 10px;
   }
-  
-  /* Typographie globale */
-  body {
-    font-family: 'Roboto', sans-serif; /* Police moderne et lisible */
-    color: var(--text-color);
-    background-color: var(--bg-light);
-    line-height: 1.6;
-  }
-  
-  /* Conteneur principal pour toutes les interfaces */
-  .container-fluid {
+  .btn-prototype {
+    height: 180px;
     padding: 15px;
   }
-  
-  /* Classes utilitaires réutilisables */
-  .btn-custom {
-    border-radius: var(--border-radius);
-    padding: 10px 20px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-  }
-  
-  .btn-custom:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow);
-  }
-  
-  /* Adaptation mobile pour interfaces simulées */
-  .mobile-container {
-    max-width: 400px; /* Largeur typique d’un écran mobile */
-    margin: 0 auto;
-    border: 2px solid #ddd;
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--shadow);
-  }
-  
-  /* Carte stylée pour poubelles ou stats */
-  .card-custom {
-    border: none;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    margin-bottom: 15px;
-  }
-  
-  .card-custom .card-header {
-    background-color: var(--primary-color);
-    color: white;
-    font-weight: bold;
-  }
-  
-  /* Statuts des poubelles */
-  .status-full { background-color: var(--danger-color); color: white; }
-  .status-half { background-color: var(--warning-color); color: var(--text-color); }
-  .status-low { background-color: var(--primary-color); color: white; }
-  
-  /* Animation pour notifications ou alertes */
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  
-  .alert-custom {
-    animation: fadeIn 0.5s ease-in;
-    border-radius: var(--border-radius);
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .btn-custom {
-      padding: 8px 15px;
-      font-size: 14px;
-    }
-    .card-custom {
-      margin-bottom: 10px;
-    }
-  }
+  .btn-prototype h2 { font-size: 1.1rem; }
+  .btn-prototype p { font-size: 11px; }
+}
