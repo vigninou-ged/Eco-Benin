@@ -3,12 +3,12 @@
 .mobile-container {
   background-color: #fff;
   min-height: 100vh;
-  max-width: 400px; /* Limite stricte pour mobile */
+  max-width: 400px;
   margin: 0 auto;
-  padding-bottom: 50px; /* Espace ajusté pour nav */
+  padding-bottom: 50px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Plus de centrage pour content */
+  justify-content: flex-start;
 }
 
 header {
@@ -17,20 +17,14 @@ header {
   border-bottom: 2px solid var(--primary-color);
 }
 
-.logo {
-  max-width: 100px;
-  animation: bounceIn 1s ease;
-}
+.logo { max-width: 100px; animation: bounceIn 1s ease; }
 
-.card-custom {
-  box-shadow: var(--shadow);
-  border-radius: var(--border-radius);
-}
+.card-custom { box-shadow: var(--shadow); border-radius: var(--border-radius); }
 
 .cta-btn {
   position: relative;
   overflow: hidden;
-  font-size: 12px; /* Plus petit pour mobile */
+  font-size: 12px;
   padding: 6px;
 }
 
@@ -47,10 +41,7 @@ header {
   transition: width 0.6s ease, height 0.6s ease;
 }
 
-.cta-btn:hover::after {
-  width: 150px;
-  height: 150px;
-}
+.cta-btn:hover::after { width: 150px; height: 150px; }
 
 .form-label i { margin-right: 5px; }
 
@@ -58,31 +49,31 @@ header {
 .content-section.active { display: block; }
 
 .notification-icon { cursor: pointer; font-size: 14px; }
-.profile-pic { width: 25px; height: 25px; }
+.profile-pic { width: 25px; height: 25px; cursor: pointer; }
 
-.visual-banner .dashed-border {
-  border: 2px dashed var(--primary-color);
-  border-radius: var(--border-radius);
-}
+.tutorials video { max-height: 100px; }
 
-.help-section i {
-  color: var(--primary-color);
-  transition: transform 0.3s ease;
-}
+.status-full { background-color: var(--danger-color); color: white; }
+.status-half { background-color: var(--warning-color); color: var(--text-color); }
+.status-low { background-color: var(--primary-color); color: white; }
 
-.help-section i:hover { transform: scale(1.2); }
+.route-btn { font-size: 10px; padding: 2px 8px; }
 
-/* Navbar optimisée pour mobile */
 .nav-bottom {
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-  height: 50px; /* Hauteur réduite */
-  position: fixed;
-  bottom: 0;
-  max-width: 400px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  max-width: 390px;
   width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 
-
+.nav-bottom .d-flex {
+  width: 100%;
+  padding: 0 5px;
+}
 
 .nav-bottom .nav-link {
   color: var(--text-color);
@@ -96,13 +87,13 @@ header {
 .nav-bottom .nav-link.active { color: var(--primary-color); }
 
 .nav-bottom .nav-link i { font-size: 16px; margin-bottom: 2px; }
-.nav-bottom .add-btn i {
+.nav-bottom .scan-btn i {
   color: var(--primary-color);
-  font-size: 24px; /* Bouton central plus grand */
+  font-size: 24px;
   transition: transform 0.3s ease;
 }
 
-.nav-bottom .add-btn:hover i { transform: scale(1.2); }
+.nav-bottom .scan-btn:hover i { transform: scale(1.2); }
 
 .tiny { font-size: 10px; line-height: 1; margin: 0; }
 
