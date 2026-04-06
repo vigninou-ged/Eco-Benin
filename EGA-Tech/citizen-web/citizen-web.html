@@ -3,112 +3,197 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ÉcoBénin - Gestion Intelligente des Déchets</title>
+  <title>ÉcoBénin — Portail Citoyen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="../index.css">
   <link rel="stylesheet" href="citizen-web.css">
 </head>
 <body>
-  <div class="container-fluid">
-    <!-- En-tête avec texte animé -->
-    <header class="text-center py-5">
-      <img src="#" alt="Logo ÉcoBénin" class="mb-3 logo">
-      <h1 class="display-4">ÉcoBénin – La gestion intelligente des déchets</h1>
-      <h2 class="h5 text-muted">Une plateforme innovante pour optimiser la collecte, le tri et le recyclage au Bénin</h2>
-      <div class="lead mt-3 text-slideshow">
-        <span class="slide">ÉcoBénin utilise l’IA pour réduire l’impact environnemental.</span>
+
+  <!-- Nav -->
+  <nav class="cw-nav">
+    <div class="cw-nav-logo">
+      <div class="dot"><i class="fas fa-leaf"></i></div>
+      ÉcoBénin
+    </div>
+    <div class="cw-nav-links">
+      <a href="#cycle" class="cw-nav-link">Le cycle</a>
+      <a href="#tutorials" class="cw-nav-link">Tutoriels</a>
+      <a href="#faq" class="cw-nav-link">FAQ</a>
+      <a href="#suggestions" class="cw-nav-link">Suggestions</a>
+    </div>
+    <a href="#download" class="btn btn-primary btn-sm">
+      <i class="fas fa-download me-1"></i> Télécharger
+    </a>
+  </nav>
+
+  <!-- Hero -->
+  <header class="cw-hero">
+    <div class="cw-hero-eyebrow">
+      <span style="width:5px;height:5px;border-radius:50%;background:var(--clr-primary);display:inline-block;animation:pulse 2s infinite"></span>
+      Plateforme IA de gestion des déchets — Bénin
+    </div>
+    <h1 class="cw-hero-title logo">ÉcoBénin — La gestion<br>intelligente des déchets</h1>
+    <p class="cw-hero-sub">Une plateforme innovante pour optimiser la collecte, le tri et le recyclage au Bénin.</p>
+
+    <div class="slideshow-wrapper">
+      <div class="text-slideshow" style="position:relative;height:48px;">
+        <span class="slide visible">ÉcoBénin utilise l'IA pour réduire l'impact environnemental.</span>
         <span class="slide">Minimisez les coûts opérationnels avec une gestion efficace.</span>
         <span class="slide">Promouvoir des pratiques durables pour un Bénin plus vert.</span>
         <span class="slide">Connectez producteurs, collecteurs et recycleurs.</span>
       </div>
-      <div class="mt-4">
-        <a href="#download" class="btn btn-primary btn-custom"><i class="fas fa-download"></i> Télécharger l’application</a>
-      </div>
-    </header>
+    </div>
 
-    <!-- Cycle Visuel -->
-    <section id="cycle" class="text-center py-5">
-      <h2 class="h4 mb-4">Le Cycle ÉcoBénin</h2>
-      <div class="row justify-content-center">
-        <div class="col-md-3"><i class="fas fa-trash fa-3x mb-2"></i><p>Déchets</p></div>
-        <div class="col-md-3"><i class="fas fa-truck fa-3x mb-2"></i><p>Collecte</p></div>
-        <div class="col-md-3"><i class="fas fa-sort fa-3x mb-2"></i><p>Tri</p></div>
-        <div class="col-md-3"><i class="fas fa-recycle fa-3x mb-2"></i><p>Recyclage</p></div>
-      </div>
-    </section>
+    <a href="#download" class="btn btn-primary btn-lg">
+      <i class="fas fa-download"></i> Télécharger l'application
+    </a>
+  </header>
 
-    <!-- Tutoriels Vidéo -->
-    <section id="tutorials" class="py-5 bg-light">
-      <h2 class="h4 text-center mb-4">Tutoriels Vidéo</h2>
-      <div class="row justify-content-center">
-        <div class="col-md-4">
-          <div class="card card-custom">
-            <div class="card-body">
-              <h5 class="card-title">Comment trier vos déchets</h5>
-              <iframe class="w-100" height="200" src="https://www.youtube.com/embed/dummy" frameborder="0" allowfullscreen></iframe>
-            </div>
-          </div>
+  <!-- Cycle -->
+  <section id="cycle" class="cycle-section">
+    <div class="citizen-web-layout">
+      <p style="text-align:center;font-size:var(--text-xs);font-family:var(--font-mono);letter-spacing:0.1em;text-transform:uppercase;color:var(--clr-text-3);margin-bottom:10px;">Le cycle ÉcoBénin</p>
+      <h2 style="text-align:center;font-size:var(--text-xl);margin-bottom:32px;">Du déchet à la ressource</h2>
+      <div class="cycle-grid">
+        <div class="cycle-step">
+          <div class="cycle-icon"><i class="fas fa-trash-can"></i></div>
+          <div class="cycle-label">Déchets</div>
         </div>
-        <div class="col-md-4">
-          <div class="card card-custom">
-            <div class="card-body">
-              <h5 class="card-title">Utiliser l’appli ÉcoBénin</h5>
-              <iframe class="w-100" height="200" src="https://www.youtube.com/embed/dummy" frameborder="0" allowfullscreen></iframe>
-            </div>
-          </div>
+        <div class="cycle-step">
+          <div class="cycle-icon"><i class="fas fa-truck"></i></div>
+          <div class="cycle-label">Collecte</div>
+        </div>
+        <div class="cycle-step">
+          <div class="cycle-icon"><i class="fas fa-filter"></i></div>
+          <div class="cycle-label">Tri</div>
+        </div>
+        <div class="cycle-step">
+          <div class="cycle-icon"><i class="fas fa-recycle"></i></div>
+          <div class="cycle-label">Recyclage</div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="py-5">
-      <h2 class="h4 text-center mb-4">Foire aux Questions</h2>
+  <!-- Tutorials -->
+  <section id="tutorials" style="padding:var(--sp-7) 24px;">
+    <div class="citizen-web-layout">
+      <h2 style="text-align:center;font-size:var(--text-xl);margin-bottom:8px;">Tutoriels Vidéo</h2>
+      <p style="text-align:center;color:var(--clr-text-2);margin-bottom:32px;font-size:var(--text-sm);">Apprenez à mieux recycler en quelques minutes</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
+        <div class="card">
+          <div class="card-header"><i class="fas fa-play-circle me-2"></i>Trier vos déchets</div>
+          <div class="card-body">
+            <div style="background:var(--clr-bg-2);border-radius:var(--r-md);height:160px;display:grid;place-items:center;color:var(--clr-text-3);margin-bottom:12px;">
+              <div style="text-align:center;"><i class="fas fa-play" style="font-size:36px;margin-bottom:8px;display:block;color:var(--clr-primary);"></i>Comment trier vos déchets</div>
+            </div>
+            <p style="font-size:var(--text-xs);color:var(--clr-text-2);">Apprenez les bonnes pratiques de tri pour maximiser le recyclage.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header"><i class="fas fa-play-circle me-2"></i>Utiliser l'application</div>
+          <div class="card-body">
+            <div style="background:var(--clr-bg-2);border-radius:var(--r-md);height:160px;display:grid;place-items:center;color:var(--clr-text-3);margin-bottom:12px;">
+              <div style="text-align:center;"><i class="fas fa-mobile-alt" style="font-size:36px;margin-bottom:8px;display:block;color:var(--clr-info);"></i>Guide de l'application</div>
+            </div>
+            <p style="font-size:var(--text-xs);color:var(--clr-text-2);">Découvrez toutes les fonctionnalités de l'appli ÉcoBénin.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq-section">
+    <div class="citizen-web-layout" style="max-width:720px;">
+      <h2 style="text-align:center;font-size:var(--text-xl);margin-bottom:8px;">Questions fréquentes</h2>
+      <p style="text-align:center;color:var(--clr-text-2);margin-bottom:32px;font-size:var(--text-sm);">Tout ce que vous devez savoir sur ÉcoBénin</p>
       <div class="accordion" id="faq-accordion">
         <div class="accordion-item">
           <h3 class="accordion-header">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-              Qu’est-ce qu’ÉcoBénin ?
+              Qu'est-ce qu'ÉcoBénin ?
             </button>
           </h3>
           <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faq-accordion">
-            <div class="accordion-body">Une plateforme IA pour gérer les déchets au Bénin.</div>
+            <div class="accordion-body">ÉcoBénin est une plateforme IA qui connecte citoyens, collecteurs et administrateurs pour une gestion intelligente et durable des déchets au Bénin.</div>
           </div>
         </div>
         <div class="accordion-item">
           <h3 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-              Comment télécharger l’appli ?
-            </button>
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">Comment télécharger l'application ?</button>
           </h3>
           <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
-            <div class="accordion-body">Cliquez sur le bouton "Télécharger" ci-dessous.</div>
+            <div class="accordion-body">Cliquez sur le bouton "Télécharger" en haut de la page ou rendez-vous dans la section téléchargement. L'application est disponible sur Android et iOS.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">Comment gagner des points ?</button>
+          </h3>
+          <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+            <div class="accordion-body">Scannez les QR codes sur les poubelles partenaires ou déposez vos déchets dans les points de collecte pour accumuler des points récompense.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">ÉcoBénin est-il gratuit ?</button>
+          </h3>
+          <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+            <div class="accordion-body">Oui, l'application ÉcoBénin est entièrement gratuite pour les citoyens. Elle est financée par les partenariats avec les collectivités locales.</div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Suggestions -->
-    <section id="suggestions" class="py-5 bg-light">
-      <h2 class="h4 text-center mb-4">Vos Suggestions</h2>
-      <form id="suggestion-form" class="card card-custom p-3 mx-auto" style="max-width: 500px;">
-        <div class="mb-3">
-          <label for="suggestion-text" class="form-label">Partagez vos idées</label>
-          <textarea class="form-control" id="suggestion-text" rows="4" placeholder="Comment améliorer ÉcoBénin ?"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary btn-custom"><i class="fas fa-paper-plane"></i> Envoyer</button>
-      </form>
-    </section>
-
-    <!-- Téléchargement -->
-    <section id="download" class="py-5 text-center">
-      <h2 class="h4 mb-4">Téléchargez ÉcoBénin</h2>
-      <div>
-        <a href="#" class="btn btn-outline-dark btn-custom m-2"><i class="fab fa-google-play"></i> Google Play</a>
-        <a href="#" class="btn btn-outline-dark btn-custom m-2"><i class="fab fa-app-store"></i> App Store</a>
+  <!-- Suggestions -->
+  <section id="suggestions" class="suggestions-section">
+    <div class="citizen-web-layout">
+      <h2 style="text-align:center;font-size:var(--text-xl);margin-bottom:8px;">Vos suggestions</h2>
+      <p style="text-align:center;color:var(--clr-text-2);margin-bottom:32px;font-size:var(--text-sm);">Aidez-nous à construire une meilleure plateforme</p>
+      <div class="suggestions-form">
+        <form id="suggestion-form">
+          <div class="mb-3">
+            <label for="suggestion-text" class="form-label">Partagez vos idées</label>
+            <textarea class="form-control" id="suggestion-text" rows="4" placeholder="Comment améliorer ÉcoBénin ?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">
+            <i class="fas fa-paper-plane me-2"></i> Envoyer ma suggestion
+          </button>
+        </form>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
+
+  <!-- Download -->
+  <section id="download" class="download-section" style="border-top:1px solid var(--clr-border);">
+    <div class="citizen-web-layout">
+      <h2 style="font-size:var(--text-xl);margin-bottom:8px;">Téléchargez ÉcoBénin</h2>
+      <p style="color:var(--clr-text-2);margin-bottom:28px;font-size:var(--text-sm);">Disponible sur Android et iOS</p>
+      <div class="download-buttons">
+        <a href="#" class="download-btn" id="dl-android">
+          <i class="fab fa-google-play" style="color:#4caf50;font-size:20px;"></i>
+          <div style="text-align:left;"><div style="font-size:9px;color:var(--clr-text-3)">Disponible sur</div><div>Google Play</div></div>
+        </a>
+        <a href="#" class="download-btn" id="dl-ios">
+          <i class="fab fa-apple" style="font-size:20px;"></i>
+          <div style="text-align:left;"><div style="font-size:9px;color:var(--clr-text-3)">Télécharger dans l'</div><div>App Store</div></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="border-top:1px solid var(--clr-border);padding:24px;text-align:center;font-size:var(--text-xs);color:var(--clr-text-3);">
+    <div style="margin-bottom:8px;">
+      <a href="../../index.html" style="color:var(--clr-primary);"><i class="fas fa-arrow-left me-1"></i>Retour aux prototypes</a>
+    </div>
+    © 2025 ÉcoBénin — EGA Tech. Prototype v2.0
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../common.js"></script>
