@@ -3,66 +3,475 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Choisissez un prototype ÉcoBénin : Citoyen Mobile, Citoyen Web, Admin ou Conducteur.">
-  <meta name="keywords" content="ÉcoBénin, recyclage, gestion déchets, prototype">
-  <meta name="robots" content="index, follow">
-  <title>ÉcoBénin - Choisir un Prototype</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta name="description" content="ÉcoBénin — Plateforme IA de gestion intelligente des déchets au Bénin.">
+  <title>ÉcoBénin — Gestion intelligente des déchets</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="./EGA-Tech/index.css">
+  <style>
+    /* ── Page-level Layout ── */
+    .landing {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Ambient glow bg ── */
+    .bg-ambient {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 20%, rgba(74,214,100,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 80% 80%, rgba(56,182,255,0.04) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 40% at 60% 10%, rgba(240,196,48,0.04) 0%, transparent 50%);
+    }
+
+    /* ── Nav ── */
+    .nav-top {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 48px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(8,14,10,0.85);
+      border-bottom: 1px solid rgba(74,214,100,0.08);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-family: var(--font-display); font-size: 1.1rem; font-weight: 800;
+      color: var(--clr-text); letter-spacing: -0.02em;
+    }
+    .nav-logo .logo-icon {
+      width: 32px; height: 32px;
+      background: var(--clr-primary);
+      border-radius: 8px;
+      display: grid; place-items: center;
+      color: #0a1a0c; font-size: 16px;
+    }
+    .nav-pill {
+      background: rgba(74,214,100,0.1);
+      border: 1px solid rgba(74,214,100,0.2);
+      border-radius: var(--r-pill);
+      padding: 4px 12px;
+      font-size: var(--text-xs);
+      font-family: var(--font-mono);
+      color: var(--clr-primary);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 120px 48px 80px;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(74,214,100,0.08);
+      border: 1px solid rgba(74,214,100,0.18);
+      border-radius: var(--r-pill);
+      padding: 6px 16px;
+      font-size: var(--text-xs);
+      font-family: var(--font-mono);
+      color: var(--clr-primary);
+      letter-spacing: 0.08em;
+      margin-bottom: 28px;
+      animation: fadeInUp 0.6s ease both;
+    }
+    .hero-eyebrow .dot {
+      width: 6px; height: 6px;
+      background: var(--clr-primary);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      max-width: 900px;
+      color: var(--clr-text);
+      animation: fadeInUp 0.6s 0.1s ease both;
+    }
+    .hero-title .highlight {
+      color: var(--clr-primary);
+      position: relative;
+      display: inline-block;
+    }
+    .hero-title .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 4px; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--clr-primary), transparent);
+      border-radius: 2px;
+    }
+    .hero-sub {
+      font-size: var(--text-md);
+      color: var(--clr-text-2);
+      max-width: 560px;
+      margin: 24px auto 0;
+      font-weight: 300;
+      line-height: 1.7;
+      animation: fadeInUp 0.6s 0.2s ease both;
+    }
+    .hero-actions {
+      display: flex; gap: 12px; justify-content: center;
+      margin-top: 40px; flex-wrap: wrap;
+      animation: fadeInUp 0.6s 0.3s ease both;
+    }
+    .hero-stats {
+      display: flex; gap: 48px; justify-content: center;
+      margin-top: 64px;
+      animation: fadeInUp 0.6s 0.4s ease both;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat-value {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 800;
+      color: var(--clr-primary);
+    }
+    .hero-stat-label {
+      font-size: var(--text-xs);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--clr-text-3);
+      margin-top: 2px;
+    }
+    .hero-divider { width: 1px; height: 40px; background: var(--clr-border); }
+
+    /* ── Grid de prototypes ── */
+    .protos-section {
+      position: relative; z-index: 1;
+      padding: 40px 48px 100px;
+    }
+    .section-label {
+      text-align: center;
+      font-size: var(--text-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--clr-text-3);
+      font-family: var(--font-mono);
+      margin-bottom: 16px;
+    }
+    .section-title {
+      text-align: center;
+      font-size: var(--text-xl);
+      font-weight: 700;
+      color: var(--clr-text);
+      margin-bottom: 48px;
+    }
+    .protos-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .proto-card {
+      position: relative;
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-xl);
+      padding: 32px;
+      text-decoration: none;
+      color: var(--clr-text);
+      overflow: hidden;
+      transition: all 0.35s cubic-bezier(.23,1,.32,1);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .proto-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, var(--proto-accent, rgba(74,214,100,0.08)) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+    .proto-card:hover {
+      border-color: var(--proto-color, var(--clr-primary));
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .proto-card:hover::before { opacity: 1; }
+
+    .proto-card--citizen  { --proto-color: #4ad664; --proto-accent: rgba(74,214,100,0.08); }
+    .proto-card--web      { --proto-color: #38b6ff; --proto-accent: rgba(56,182,255,0.08); }
+    .proto-card--admin    { --proto-color: #f0c430; --proto-accent: rgba(240,196,48,0.08); }
+    .proto-card--driver   { --proto-color: #ff7c52; --proto-accent: rgba(255,124,82,0.08); }
+
+    .proto-icon-wrap {
+      width: 52px; height: 52px;
+      border-radius: var(--r-md);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--clr-border);
+      display: grid; place-items: center;
+      font-size: 22px;
+      color: var(--proto-color, var(--clr-primary));
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .proto-card:hover .proto-icon-wrap {
+      background: rgba(255,255,255,0.08);
+      border-color: var(--proto-color);
+    }
+
+    .proto-tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: var(--r-pill);
+      font-size: 10px;
+      font-family: var(--font-mono);
+      font-weight: 500;
+      border: 1px solid;
+      color: var(--proto-color);
+      border-color: var(--proto-color);
+      opacity: 0.7;
+    }
+
+    .proto-title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 700;
+      color: var(--clr-text);
+      margin: 0;
+    }
+    .proto-desc {
+      font-size: var(--text-sm);
+      color: var(--clr-text-2);
+      line-height: 1.6;
+      margin: 0;
+      flex: 1;
+    }
+    .proto-cta {
+      display: flex; align-items: center; gap: 6px;
+      font-size: var(--text-sm);
+      font-family: var(--font-display);
+      font-weight: 600;
+      color: var(--proto-color);
+      margin-top: 8px;
+    }
+    .proto-cta i { transition: transform 0.25s ease; }
+    .proto-card:hover .proto-cta i { transform: translateX(4px); }
+
+    .proto-features {
+      display: flex; gap: 8px; flex-wrap: wrap;
+    }
+    .proto-feature {
+      font-size: 10px; font-family: var(--font-mono);
+      color: var(--clr-text-3);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--r-pill);
+      padding: 2px 8px;
+    }
+
+    /* ── Tech strip ── */
+    .tech-strip {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--clr-border);
+      padding: 24px 48px;
+      display: flex; align-items: center; justify-content: center; gap: 48px;
+      background: rgba(255,255,255,0.01);
+    }
+    .tech-item {
+      font-size: var(--text-xs);
+      font-family: var(--font-mono);
+      color: var(--clr-text-3);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .tech-item i { color: var(--clr-primary); font-size: 12px; }
+
+    /* ── Animations ── */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .nav-top { padding: 16px 20px; }
+      .hero { padding: 100px 20px 60px; }
+      .hero-stats { gap: 24px; flex-wrap: wrap; }
+      .hero-divider { display: none; }
+      .protos-section { padding: 40px 20px 80px; }
+      .protos-grid { grid-template-columns: 1fr; }
+      .tech-strip { flex-wrap: wrap; gap: 16px; padding: 20px; }
+    }
+  </style>
 </head>
 <body>
-  <div class="container text-center py-5">
-    <!-- En-tête -->
-    <header class="mb-5 card-custom">
-      <div class="card-header">
-        <h1 class="h4">ÉcoBénin - Prototypes</h1>
-      </div>
-      <div class="card-body">
-        <p class="lead text-muted">Sélectionnez une interface à explorer</p>
-      </div>
-    </header>
+  <div class="bg-ambient"></div>
 
-    <!-- Boutons de sélection -->
-    <div class="row g-4">
-      <!-- Bouton Citoyen Mobile -->
-      <div class="col-md-3 col-12">
-        <a href="./EGA-Tech/citizen-mobile/citizen-mobile-login.html" class="btn btn-prototype btn-custom status-low w-100">
-          <i class="fas fa-users fa-2x mb-2"></i>
-          <h2 class="h5">Citoyen Mobile</h2>
-          <p class="small">Interface mobile pour les citoyens : connexion, inscription, gestion des déchets et points.</p>
-        </a>
-      </div>
-
-      <!-- Bouton Citoyen Web -->
-      <div class="col-md-3 col-12">
-        <a href="./EGA-Tech/citizen-web/citizen-web.html" class="btn btn-prototype btn-custom btn-primary w-100">
-          <i class="fas fa-desktop fa-2x mb-2"></i>
-          <h2 class="h5">Citoyen Web</h2>
-          <p class="small">Interface web pour les citoyens : gestion des déchets et suivi des points.</p>
-        </a>
-      </div>
-
-      <!-- Bouton Admin -->
-      <div class="col-md-3 col-12">
-        <a href="./EGA-Tech/admin-web/admin-web.html" class="btn btn-prototype btn-custom status-half w-100">
-          <i class="fas fa-user-shield fa-2x mb-2"></i>
-          <h2 class="h5">Admin</h2>
-          <p class="small">Tableau de bord web pour les administrateurs : suivi des poubelles et statistiques.</p>
-        </a>
-      </div>
-
-      <!-- Bouton Conducteur -->
-      <div class="col-md-3 col-12">
-        <a href="./EGA-Tech/collector-mobile/collector-mobile.html" class="btn btn-prototype btn-custom status-full w-100">
-          <i class="fas fa-truck fa-2x mb-2"></i>
-          <h2 class="h5">Conducteur</h2>
-          <p class="small">Application mobile pour les collecteurs : navigation GPS et gestion des tournées.</p>
-        </a>
-      </div>
+  <nav class="nav-top">
+    <div class="nav-logo">
+      <div class="logo-icon"><i class="fas fa-leaf"></i></div>
+      ÉcoBénin
     </div>
-  </div>
+    <span class="nav-pill">v2.0 prototype</span>
+  </nav>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <main class="landing">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        Prototype interactif — EGA Tech 2025
+      </div>
+
+      <h1 class="hero-title">
+        La gestion des déchets<br>
+        <span class="highlight">réinventée par l'IA</span>
+      </h1>
+
+      <p class="hero-sub">
+        ÉcoBénin connecte citoyens, collecteurs et administrateurs dans un écosystème intelligent pour un Bénin plus propre et plus durable.
+      </p>
+
+      <div class="hero-actions">
+        <a href="./EGA-Tech/citizen-mobile/citizen-mobile-login.html" class="btn btn-primary btn-lg">
+          <i class="fas fa-play"></i> Explorer les prototypes
+        </a>
+        <a href="./EGA-Tech/admin-web/admin-web.html" class="btn btn-outline btn-lg">
+          <i class="fas fa-chart-line"></i> Dashboard Admin
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-value" id="stat-bins">10</div>
+          <div class="hero-stat-label">Poubelles connectées</div>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">4</div>
+          <div class="hero-stat-label">Interfaces</div>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">–40%</div>
+          <div class="hero-stat-label">Émissions CO₂</div>
+        </div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">IA</div>
+          <div class="hero-stat-label">Optimisation routes</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prototypes -->
+    <section class="protos-section">
+      <p class="section-label">— interfaces disponibles</p>
+      <h2 class="section-title">Choisissez un prototype</h2>
+
+      <div class="protos-grid">
+        <!-- Citoyen Mobile -->
+        <a href="./EGA-Tech/citizen-mobile/citizen-mobile-login.html" class="proto-card proto-card--citizen">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;">
+            <div class="proto-icon-wrap"><i class="fas fa-mobile-alt"></i></div>
+            <span class="proto-tag">MOBILE</span>
+          </div>
+          <div>
+            <h3 class="proto-title">Citoyen Mobile</h3>
+            <p class="proto-desc">Déposez vos déchets, scannez des QR codes, accumulez des points et suivez votre impact écologique en temps réel.</p>
+          </div>
+          <div class="proto-features">
+            <span class="proto-feature">Auth</span>
+            <span class="proto-feature">QR Scan</span>
+            <span class="proto-feature">Gamification</span>
+            <span class="proto-feature">Historique</span>
+          </div>
+          <div class="proto-cta">Accéder <i class="fas fa-arrow-right"></i></div>
+        </a>
+
+        <!-- Citoyen Web -->
+        <a href="./EGA-Tech/citizen-web/citizen-web.html" class="proto-card proto-card--web">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;">
+            <div class="proto-icon-wrap"><i class="fas fa-globe"></i></div>
+            <span class="proto-tag">WEB</span>
+          </div>
+          <div>
+            <h3 class="proto-title">Citoyen Web</h3>
+            <p class="proto-desc">Portail d'information, tutoriels vidéo, FAQ et espace de suggestions pour les citoyens connectés depuis le bureau.</p>
+          </div>
+          <div class="proto-features">
+            <span class="proto-feature">Tutoriels</span>
+            <span class="proto-feature">FAQ</span>
+            <span class="proto-feature">Suggestions</span>
+            <span class="proto-feature">Download</span>
+          </div>
+          <div class="proto-cta">Accéder <i class="fas fa-arrow-right"></i></div>
+        </a>
+
+        <!-- Admin -->
+        <a href="./EGA-Tech/admin-web/admin-web.html" class="proto-card proto-card--admin">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;">
+            <div class="proto-icon-wrap"><i class="fas fa-shield-halved"></i></div>
+            <span class="proto-tag">ADMIN</span>
+          </div>
+          <div>
+            <h3 class="proto-title">Tableau de Bord Admin</h3>
+            <p class="proto-desc">Supervision en temps réel des poubelles, gestion des camions, alertes de sécurité et rapports d'activité exportables.</p>
+          </div>
+          <div class="proto-features">
+            <span class="proto-feature">Real-time</span>
+            <span class="proto-feature">Alertes</span>
+            <span class="proto-feature">Camions</span>
+            <span class="proto-feature">Rapports</span>
+          </div>
+          <div class="proto-cta">Accéder <i class="fas fa-arrow-right"></i></div>
+        </a>
+
+        <!-- Collecteur -->
+        <a href="./EGA-Tech/collector-mobile/collector-mobile.html" class="proto-card proto-card--driver">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;">
+            <div class="proto-icon-wrap"><i class="fas fa-truck"></i></div>
+            <span class="proto-tag">COLLECTEUR</span>
+          </div>
+          <div>
+            <h3 class="proto-title">App Collecteur</h3>
+            <p class="proto-desc">Navigation GPS optimisée par IA, collecte des bacs avec suivi kilométrique et statistiques de tournée en direct.</p>
+          </div>
+          <div class="proto-features">
+            <span class="proto-feature">GPS</span>
+            <span class="proto-feature">Collecte</span>
+            <span class="proto-feature">Stats</span>
+            <span class="proto-feature">Temps réel</span>
+          </div>
+          <div class="proto-cta">Accéder <i class="fas fa-arrow-right"></i></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Tech strip -->
+    <div class="tech-strip">
+      <span class="tech-item"><i class="fas fa-circle-check"></i> Modular ES Architecture</span>
+      <span class="tech-item"><i class="fas fa-circle-check"></i> Token-based Design System</span>
+      <span class="tech-item"><i class="fas fa-circle-check"></i> Event-driven Store</span>
+      <span class="tech-item"><i class="fas fa-circle-check"></i> Bootstrap 5 + Custom CSS</span>
+      <span class="tech-item"><i class="fas fa-circle-check"></i> Mobile-first Responsive</span>
+    </div>
+  </main>
+
+  <script>
+    // Animate bin count from sharedData
+    document.addEventListener('DOMContentLoaded', () => {
+      const el = document.getElementById('stat-bins');
+      if (window.EcoBenin) {
+        const count = window.EcoBenin.store.getState().bins.length;
+        el.textContent = count;
+      }
+    });
+  </script>
+
+  <script src="./EGA-Tech/common.js"></script>
 </body>
 </html>
