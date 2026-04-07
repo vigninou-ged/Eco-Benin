@@ -3,180 +3,254 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ÉcoBénin : Gérez vos déchets, gagnez des points et recyclez intelligemment au Bénin.">
-  <meta name="keywords" content="recyclage, gestion déchets, ÉcoBénin, application mobile, environnement">
-  <meta name="robots" content="index, follow">
-  <title>ÉcoBénin - Tableau de Bord</title>
+  <title>ÉcoBénin — Accueil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="../index.css">
   <link rel="stylesheet" href="citizen-mobile.css">
 </head>
 <body>
-  <div class="mobile-container">
-    <!-- Section 1 : Tableau de bord -->
-    <section id="dashboard" class="content-section active">
-      <header class="bg-warning text-dark py-2 px-2 d-flex justify-content-between align-items-center">
-        <p class="mb-0 small"><i class="fas fa-sun me-1"></i> Salut, Kofi ! <span id="eco-points">0</span> <i class="fas fa-coins"></i></p>
-        <div>
-          <i class="fas fa-bell me-1 notification-icon"></i>
-          <a href="#profile"><img src="#" alt="Profil" class="rounded-circle profile-pic"></a>
-        </div>
-      </header>
-      <div class="p-2">
-        <h2 class="h6 mb-2">Poubelles proches</h2>
-        <div id="bins-container" class="list-group mb-3"></div>
-        <button class="btn btn-primary btn-custom w-100 cta-btn" id="scan-btn"><i class="fas fa-qrcode"></i> Scanner QR</button>
-        <p id="scan-result" class="text-muted small text-center mt-2"></p>
-      </div>
-      <div class="help-section p-2">
-        <h2 class="h6 text-center mb-2">Tutoriels</h2>
-        <div class="tutorials">
-          <div class="mb-3">
-            <p class="small fw-bold">Comment prendre une photo</p>
-            <video src="https://via.placeholder.com/300x100" controls class="w-100 rounded"></video>
-          </div>
-          <div class="mb-3">
-            <p class="small fw-bold">Trouver un point de collecte</p>
-            <video src="https://via.placeholder.com/300x100" controls class="w-100 rounded"></video>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="mobile-container">
 
-    <!-- Section 2 : Historique -->
-    <section id="history" class="content-section">
-      <h2 class="h6 text-center py-2">Historique</h2>
-      <div class="p-2">
-        <div id="history-list" class="list-group"></div>
+  <!-- ── DASHBOARD ── -->
+  <section id="dashboard" class="content-section active">
+    <div class="mobile-header">
+      <div>
+        <div class="mobile-header-greeting">Salut, Kofi 👋</div>
+        <div class="mobile-header-sub">Aujourd'hui, recyclez !</div>
       </div>
-    </section>
+      <div class="header-actions">
+        <div class="points-chip"><i class="fas fa-coins"></i><span id="eco-points">0</span></div>
+        <button class="notif-btn notification-icon"><i class="fas fa-bell"></i></button>
+      </div>
+    </div>
 
-    <!-- Section 3 : Mes points -->
-    <section id="points" class="content-section">
-      <h2 class="h6 text-center py-2">Mes points</h2>
-      <div class="card card-custom bg-dark text-white mx-2 mb-2">
-        <div class="card-body text-center">
-          <p class="h4 mb-0" id="total-points">0</p>
-          <p class="tiny">Total</p>
-          <a href="#history" class="text-warning tiny"><i class="fas fa-history"></i> Historique</a>
-        </div>
-      </div>
-      <div class="points-store p-2">
-        <h2 class="h6 mb-2">À quoi servent les points ?</h2>
-        <p class="small text-muted">Utilisez vos points pour obtenir des récompenses : réductions chez nos partenaires, bons d’achat ou dons à des causes écologiques.</p>
-      </div>
-    </section>
+    <!-- QR Scan hero -->
+    <div class="scan-hero" id="scan-btn">
+      <div class="scan-hero-icon"><i class="fas fa-qrcode"></i></div>
+      <div class="scan-hero-text">Scanner un QR code</div>
+      <div class="scan-hero-sub">Gagnez des points à chaque dépôt</div>
+    </div>
+    <p id="scan-result" style="text-align:center;font-size:var(--text-xs);color:var(--clr-primary);height:18px;padding:0 16px;"></p>
 
-    <!-- Section 4 : Profil -->
-    <section id="profile" class="content-section">
-      <h2 class="h6 text-center py-2">Profil</h2>
-      <div class="list-group p-2">
-        <a href="#history" class="list-group-item list-group-item-action"><i class="fas fa-history me-2"></i> Mes historiques</a>
-        <a href="#faq" class="list-group-item list-group-item-action"><i class="fas fa-question-circle me-2"></i> FAQ</a>
-        <a href="#suggestions" class="list-group-item list-group-item-action"><i class="fas fa-lightbulb me-2"></i> Suggestions</a>
-        <a href="#account" class="list-group-item list-group-item-action"><i class="fas fa-user-edit me-2"></i> Mon compte</a>
-        <a href="#support" class="list-group-item list-group-item-action"><i class="fas fa-headset me-2"></i> Support client</a>
-        <a href="#" class="list-group-item list-group-item-action text-danger" id="logout"><i class="fas fa-sign-out-alt me-2"></i> Déconnexion</a>
+    <!-- Nearby bins -->
+    <div class="section-pad">
+      <div class="section-title-sm">
+        Poubelles proches
+        <span class="see-all" data-nav="history">Voir tout</span>
       </div>
-    </section>
+      <div id="bins-container"></div>
+    </div>
 
-    <!-- Section 5 : FAQ -->
-    <section id="faq" class="content-section">
-      <h2 class="h6 text-center py-2">FAQ</h2>
-      <div class="accordion p-2" id="faq-accordion">
+    <!-- Quick tutorials -->
+    <div class="section-pad" style="margin-top:8px;">
+      <div class="section-title-sm">Tutoriels rapides</div>
+      <div class="tutorial-card">
+        <div class="tutorial-thumb"><i class="fas fa-sort-amount-up"></i></div>
+        <div class="tutorial-body"><div class="tutorial-title">Comment bien trier vos déchets</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HISTORY ── -->
+  <section id="history" class="content-section">
+    <div class="mobile-header">
+      <div>
+        <div class="mobile-header-greeting">Historique</div>
+        <div class="mobile-header-sub">Vos dernières actions</div>
+      </div>
+    </div>
+    <div id="history-list"></div>
+  </section>
+
+  <!-- ── POINTS ── -->
+  <section id="points" class="content-section">
+    <div class="mobile-header">
+      <div>
+        <div class="mobile-header-greeting">Mes points</div>
+        <div class="mobile-header-sub">Récompenses & impact</div>
+      </div>
+    </div>
+
+    <div class="points-hero">
+      <div class="points-total" id="total-points">0</div>
+      <div class="points-label">Points ÉcoBénin</div>
+    </div>
+
+    <div class="section-pad">
+      <div class="section-title-sm">À quoi servent vos points ?</div>
+      <div style="background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--r-md);padding:14px;font-size:var(--text-sm);color:var(--clr-text-2);line-height:1.6;">
+        Échangez vos points contre des réductions chez nos partenaires, des bons d'achat ou faites un don à des causes écologiques au Bénin.
+      </div>
+    </div>
+
+    <div class="section-pad" style="margin-top:8px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div class="stat-card"><div class="stat-value" id="total-points-2">0</div><div class="stat-label">Total pts</div></div>
+        <div class="stat-card"><div class="stat-value" style="color:var(--clr-accent);" id="scans-count">0</div><div class="stat-label">Scans</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROFILE ── -->
+  <section id="profile" class="content-section">
+    <div class="mobile-header">
+      <div>
+        <div class="mobile-header-greeting">Mon profil</div>
+        <div class="mobile-header-sub">Kofi Mensah</div>
+      </div>
+    </div>
+
+    <div class="profile-list">
+      <div class="profile-item" data-nav="history">
+        <div class="pi-icon"><i class="fas fa-history"></i></div>
+        <span>Mon historique</span>
+        <i class="fas fa-chevron-right pi-arrow"></i>
+      </div>
+      <div class="profile-item" data-nav="faq">
+        <div class="pi-icon"><i class="fas fa-circle-question"></i></div>
+        <span>FAQ</span>
+        <i class="fas fa-chevron-right pi-arrow"></i>
+      </div>
+      <div class="profile-item" data-nav="suggestions">
+        <div class="pi-icon"><i class="fas fa-lightbulb"></i></div>
+        <span>Suggestions</span>
+        <i class="fas fa-chevron-right pi-arrow"></i>
+      </div>
+      <div class="profile-item" data-nav="account">
+        <div class="pi-icon"><i class="fas fa-user-pen"></i></div>
+        <span>Mon compte</span>
+        <i class="fas fa-chevron-right pi-arrow"></i>
+      </div>
+      <div class="profile-item" data-nav="support">
+        <div class="pi-icon"><i class="fas fa-headset"></i></div>
+        <span>Support client</span>
+        <i class="fas fa-chevron-right pi-arrow"></i>
+      </div>
+      <div class="profile-item danger" id="logout">
+        <div class="pi-icon"><i class="fas fa-arrow-right-from-bracket"></i></div>
+        <span>Déconnexion</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ── -->
+  <section id="faq" class="content-section">
+    <div class="mobile-header">
+      <div><div class="mobile-header-greeting">FAQ</div></div>
+    </div>
+    <div style="padding:12px;">
+      <div class="accordion" id="faq-accordion">
         <div class="accordion-item">
           <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-              Comment gagner des points ?
-            </button>
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">Comment gagner des points ?</button>
           </h2>
           <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
-            <div class="accordion-body small">Scannez un QR ou déposez un objet dans une poubelle partenaire.</div>
+            <div class="accordion-body">Scannez un QR code ou déposez un objet dans une poubelle partenaire pour gagner des points.</div>
           </div>
         </div>
         <div class="accordion-item">
           <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-              Où trouver les poubelles ?
-            </button>
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">Où trouver les poubelles partenaires ?</button>
           </h2>
           <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
-            <div class="accordion-body small">Consultez la liste sur l’accueil.</div>
+            <div class="accordion-body">Elles apparaissent dans la liste sur l'écran d'accueil, filtrées par proximité.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">Comment utiliser mes points ?</button>
+          </h2>
+          <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+            <div class="accordion-body">Rendez-vous dans la section "Mes points" pour consulter les offres partenaires disponibles.</div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Section 6 : Suggestions -->
-    <section id="suggestions" class="content-section">
-      <h2 class="h6 text-center py-2">Suggestions</h2>
-      <div class="p-2">
-        <form id="suggestion-form">
-          <div class="mb-2">
-            <textarea class="form-control form-control-sm" rows="3" placeholder="Votre suggestion..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-custom w-100">Envoyer</button>
-        </form>
-        <p id="suggestion-result" class="text-muted small text-center mt-2"></p>
+  <!-- ── SUGGESTIONS ── -->
+  <section id="suggestions" class="content-section">
+    <div class="mobile-header">
+      <div><div class="mobile-header-greeting">Suggestions</div></div>
+    </div>
+    <div style="padding:16px;">
+      <p style="font-size:var(--text-sm);color:var(--clr-text-2);margin-bottom:16px;">Aidez-nous à améliorer ÉcoBénin !</p>
+      <form id="suggestion-form">
+        <div class="mb-3">
+          <label class="form-label">Votre idée</label>
+          <textarea class="form-control" rows="4" placeholder="Partagez une idée ou un retour..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary w-100"><i class="fas fa-paper-plane me-2"></i>Envoyer</button>
+      </form>
+      <p id="suggestion-result" style="text-align:center;font-size:var(--text-xs);color:var(--clr-primary);margin-top:12px;height:16px;"></p>
+    </div>
+  </section>
+
+  <!-- ── ACCOUNT ── -->
+  <section id="account" class="content-section">
+    <div class="mobile-header">
+      <div><div class="mobile-header-greeting">Mon compte</div></div>
+    </div>
+    <div style="padding:16px;">
+      <form id="account-form">
+        <div class="mb-3">
+          <label class="form-label">Nom</label>
+          <input type="text" class="form-control" value="Kofi" id="account-name">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" value="kofi@example.com" id="account-email">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Téléphone</label>
+          <input type="tel" class="form-control" value="+229 12 34 56 78" id="account-phone">
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Sauvegarder les modifications</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ── SUPPORT ── -->
+  <section id="support" class="content-section">
+    <div class="mobile-header">
+      <div><div class="mobile-header-greeting">Support</div></div>
+    </div>
+    <div style="padding:16px;">
+      <div style="background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--r-md);padding:16px;margin-bottom:16px;">
+        <p style="font-size:var(--text-xs);color:var(--clr-text-3);margin-bottom:8px;">Contactez-nous directement :</p>
+        <div style="font-size:var(--text-sm);display:flex;flex-direction:column;gap:8px;">
+          <div><i class="fas fa-envelope me-2" style="color:var(--clr-primary)"></i>support@ecobenin.bj</div>
+          <div><i class="fas fa-phone me-2" style="color:var(--clr-primary)"></i>+229 98 76 54 32</div>
+        </div>
       </div>
-    </section>
+      <form id="support-form">
+        <div class="mb-3">
+          <label class="form-label">Votre message</label>
+          <textarea class="form-control" rows="4" placeholder="Décrivez votre problème..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary w-100"><i class="fas fa-paper-plane me-2"></i>Envoyer</button>
+      </form>
+      <p id="support-result" style="text-align:center;font-size:var(--text-xs);color:var(--clr-primary);margin-top:12px;height:16px;"></p>
+    </div>
+  </section>
 
-    <!-- Section 7 : Mon compte -->
-    <section id="account" class="content-section">
-      <h2 class="h6 text-center py-2">Mon compte</h2>
-      <div class="p-2">
-        <form id="account-form">
-          <div class="mb-2">
-            <label class="form-label tiny">Nom</label>
-            <input type="text" class="form-control form-control-sm" value="Kofi" id="account-name">
-          </div>
-          <div class="mb-2">
-            <label class="form-label tiny">Email</label>
-            <input type="email" class="form-control form-control-sm" value="kofi@example.com" id="account-email">
-          </div>
-          <div class="mb-2">
-            <label class="form-label tiny">Téléphone</label>
-            <input type="tel" class="form-control form-control-sm" value="+22912345678" id="account-phone">
-          </div>
-          <button type="submit" class="btn btn-primary btn-custom w-100">Mettre à jour</button>
-        </form>
-      </div>
-    </section>
+  <!-- ── Bottom Nav ── -->
+  <nav class="nav-bottom">
+    <div class="nav-inner">
+      <button class="nav-tab active" data-nav="dashboard"><i class="fas fa-house"></i>Accueil</button>
+      <button class="nav-tab" data-nav="history"><i class="fas fa-clock-rotate-left"></i>Historique</button>
+      <button class="nav-scan" id="nav-scan-btn"><i class="fas fa-qrcode"></i></button>
+      <button class="nav-tab" data-nav="points"><i class="fas fa-coins"></i>Points</button>
+      <button class="nav-tab" data-nav="profile"><i class="fas fa-user"></i>Profil</button>
+    </div>
+  </nav>
 
-    <!-- Section 8 : Support client -->
-    <section id="support" class="content-section">
-      <h2 class="h6 text-center py-2">Support client</h2>
-      <div class="p-2">
-        <p class="small text-muted">Contactez-nous :</p>
-        <ul class="list-unstyled small">
-          <li><i class="fas fa-envelope me-2"></i> support@ecobenin.com</li>
-          <li><i class="fas fa-phone me-2"></i> +229 9876 5432</li>
-        </ul>
-        <form id="support-form">
-          <div class="mb-2">
-            <textarea class="form-control form-control-sm" rows="3" placeholder="Votre message..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-custom w-100">Envoyer</button>
-        </form>
-        <p id="support-result" class="text-muted small text-center mt-2"></p>
-      </div>
-    </section>
+</div>
 
-    <!-- Navigation en bas -->
-    <nav class="nav-bottom  bg-light">
-      <div class="d-flex justify-content-around align-items-center">
-        <a href="#dashboard" class="nav-link active"><i class="fas fa-home"></i><span class="tiny">Accueil</span></a>
-        <a href="#history" class="nav-link"><i class="fas fa-history"></i><span class="tiny">Historique</span></a>
-        <a href="#" class="nav-link scan-btn"><i class="fas fa-qrcode fa-lg"></i></a>
-        <a href="#points" class="nav-link"><i class="fas fa-coins"></i><span class="tiny">Points</span></a>
-        <a href="#profile" class="nav-link"><i class="fas fa-user"></i><span class="tiny">Profil</span></a>
-      </div>
-    </nav>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../common.js"></script>
-  <script src="citizen-mobile.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../common.js"></script>
+<script src="citizen-mobile.js"></script>
 </body>
 </html>
